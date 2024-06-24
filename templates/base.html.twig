@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full">
+<html class="h-full" lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,20 @@
 <div class="flex-1">
     {% block body %}{% endblock %}
 </div>
+
+<footer class="bg-gray-800 text-gray-300 px-6 py-12 mt-12">
+    <div class="max-w-screen-xl mx-auto flex md:justify-between flex-col gap-4 md:flex-row-reverse justify-center md:items-center">
+        <div class="flex gap-4">
+            <a href="https://github.com/Simon-Honore" class="hover:text-white">
+                <twig:ux:icon name="flowbite:github-solid" class="size-8"/>
+            </a>
+            <a href="https://www.linkedin.com/in/simon-honore/" class="hover:text-white">
+                <twig:ux:icon name="flowbite:linkedin-solid" class="size-8"/>
+            </a>
+        </div>
+        <p>© {{ "now" | date("Y") }} - Simon Honoré. Tous droits réservés</p>
+    </div>
+</footer>
 
 {# TODO - à enlever en prod #}
 {# indicateur screen size #}
