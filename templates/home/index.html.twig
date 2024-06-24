@@ -8,6 +8,73 @@
 
         <twig:Hero/>
 
-        
+        <section class="container mx-auto p-4 space-y-4">
+
+            <h2 class="font-bold text-3xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent">
+                Compétences</h2>
+
+            <div class="flex flex-col gap-4 md:flex-row md:justify-around">
+                <div class="border border-border bg-card text-card-foreground py-4 px-8 rounded-lg w-[300px] mx-auto">
+                    <h5 class="mb-2 text-2xl font-bold uppercase text-center opacity-80">
+                        Front-end
+                    </h5>
+                    <ul class="space-y-2 font-medium text-lg">
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:typescript" class="size-6"/>
+                            TypeScript
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:react" class="size-6"/>
+                            React
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:nextjs" class="size-6"/>
+                            Next
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border border-border bg-card text-card-foreground py-4 px-8 rounded-lg w-[300px] mx-auto">
+                    <h5 class="mb-2 text-2xl font-bold uppercase text-center opacity-80">
+                        Back-end
+                    </h5>
+                    <ul class="space-y-2 font-medium text-lg">
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:php" class="size-6"/>
+                            PHP
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:symfony" class="size-6"/>
+                            Symfony
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="dashicons:rest-api" class="size-6"/>
+                            API Rest
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="border border-border bg-card text-card-foreground py-4 px-8 rounded-lg w-[300px] mx-auto">
+                    <h5 class="mb-2 text-2xl font-bold uppercase text-center opacity-80">
+                        Base de données
+                    </h5>
+                    <ul class="space-y-2 font-medium text-lg">
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:mysql-wordmark" class="size-6"/>
+                            MySQL
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:doctrine" class="size-6"/>
+                            Doctrine
+                        </li>
+                        <li class="flex gap-2 items-center">
+                            <twig:ux:icon name="devicon:prisma" class="size-6"/>
+                            Prisma
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
     </div>
 {% endblock %}
