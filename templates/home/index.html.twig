@@ -8,11 +8,7 @@
 
         <twig:Hero/>
 
-        <section class="container mx-auto p-4 space-y-4">
-
-            <h2 class="font-bold text-3xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent">
-                Compétences</h2>
-
+        <twig:SectionLayout sectionTitle="Compétences">
             <div class="flex flex-col gap-4 md:flex-row md:justify-around">
 
                 <twig:CardSkills cardTitle="Front-end"
@@ -25,7 +21,6 @@
                                  :skills="{MySQL: 'devicon:mysql-wordmark', Doctrine: 'devicon:doctrine', Prisma: 'devicon:prisma'}"/>
 
             </div>
-
-        </section>
+        </twig:SectionLayout>
     </div>
 {% endblock %}
