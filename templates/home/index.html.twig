@@ -8,6 +8,19 @@
 
         <twig:Hero/>
 
-        
+        <twig:SectionLayout sectionTitle="Compétences">
+            <div class="flex flex-col gap-4 md:flex-row md:justify-around">
+
+                <twig:CardSkills cardTitle="Front-end"
+                                 :skills="{TypeScript: 'devicon:typescript', React: 'devicon:react', Next: 'devicon:nextjs'}"/>
+
+                <twig:CardSkills cardTitle="Back-end"
+                                 :skills="{PHP: 'devicon:php', Symfony: 'devicon:symfony', 'API Rest': 'dashicons:rest-api'}"/>
+
+                <twig:CardSkills cardTitle="Base de données"
+                                 :skills="{MySQL: 'devicon:mysql-wordmark', Doctrine: 'devicon:doctrine', Prisma: 'devicon:prisma'}"/>
+
+            </div>
+        </twig:SectionLayout>
     </div>
 {% endblock %}
