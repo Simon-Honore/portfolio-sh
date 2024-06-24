@@ -143,6 +143,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/tailwind-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/ux-twig-component" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />
@@ -151,7 +152,7 @@
   </component>
   <component name="PhpUnit">
     <phpunit_settings>
-      <PhpUnitSettings configuration_file_path="$PROJECT_DIR$/phpunit.xml.dist" custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" use_configuration_file="true" />
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/vendor/autoload.php" />
     </phpunit_settings>
   </component>
   <component name="PsalmOptionsConfiguration">
