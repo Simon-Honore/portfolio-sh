@@ -28,8 +28,8 @@ class ProjectController extends AbstractController
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->persist($project);
-            $em->flush();
+            $manager->persist($project);
+            $manager->flush();
             $this->addFlash('success', 'Le projet a été créé');
             return $this->redirectToRoute('admin_project_index');
         }
