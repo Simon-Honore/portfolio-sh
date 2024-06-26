@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
+#[UniqueEntity(['title', 'slug'])]
 class Project
 {
     #[ORM\Id]
@@ -17,22 +20,28 @@ class Project
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = '';
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 5, max: 100)]
+    private string $title = '';
 
     #[ORM\Column(length: 255)]
-    private ?string $slug = '';
+    #[Assert\Length(min: 5, max: 100)]
+    #[Assert\Regex('/^[a-z0-9]+(?:-[a-z0-9]+)*$/')]
+    private string $slug = '';
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $plot = '';
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 10, max: 200)]
+    private string $plot = '';
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $isPinned = false;
+    private bool $isPinned = false;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -53,7 +62,7 @@ class Project
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -65,7 +74,7 @@ class Project
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getSlug(): string
     {
         return $this->slug;
     }
@@ -89,7 +98,7 @@ class Project
         return $this;
     }
 
-    public function getPlot(): ?string
+    public function getPlot(): string
     {
         return $this->plot;
     }
