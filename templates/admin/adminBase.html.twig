@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="h-full" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SH Admin - {% block title %}{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+    {% endblock %}
+
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+</head>
+<body class="h-full bg-background text-foreground flex flex-col">
+
+
+<twig:Navbar :links="{}"/>
+
+<div class="flex-1">
+    <div class="container mx-auto my-4">
+        {% include 'partials/flash.html.twig' %}
+    </div>
+    {% block body %}{% endblock %}
+</div>
+
+<footer class="bg-gray-800 text-gray-300 px-6 py-12 mt-12">
+    <div class="max-w-screen-xl mx-auto flex md:justify-between flex-col gap-4 md:flex-row-reverse justify-center md:items-center">
+        <div class="flex gap-4">
+            <a href="https://github.com/Simon-Honore" class="hover:text-white">
+                <twig:ux:icon name="flowbite:github-solid" class="size-8"/>
+            </a>
+            <a href="https://www.linkedin.com/in/simon-honore/" class="hover:text-white">
+                <twig:ux:icon name="flowbite:linkedin-solid" class="size-8"/>
+            </a>
+        </div>
+        <p>© {{ "now" | date("Y") }} - Simon Honoré. Tous droits réservés</p>
+    </div>
+</footer>
+
+{# TODO - à enlever en prod #}
+{# indicateur screen size #}
+<div class="fixed bottom-10 left-1 z-50 flex h-6 w-6 items-center justify-center rounded-full bg-gray-800 p-3 font-mono text-xs text-white">
+    <div class="block sm:hidden">xs</div>
+    <div class="hidden sm:block md:hidden">sm</div>
+    <div class="hidden md:block lg:hidden">md</div>
+    <div class="hidden lg:block xl:hidden">lg</div>
+    <div class="hidden xl:block 2xl:hidden">xl</div>
+    <div class="hidden 2xl:block">2xl</div>
+</div>
+
+</body>
+</html>
