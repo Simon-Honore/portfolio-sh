@@ -8,10 +8,13 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ProjectRepository::class)]
 #[UniqueEntity(['title', 'slug'])]
+#[Vich\Uploadable()]
 class Project
 {
     #[ORM\Id]
@@ -32,6 +35,10 @@ class Project
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[Vich\UploadableField(mapping: 'projects', fileNameProperty: 'image')]
+    #[Assert\Image()]
+    private ?File $imageFile = null;
+
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank()]
     #[Assert\Length(min: 10, max: 200)]
@@ -49,7 +56,7 @@ class Project
     /**
      * @var Collection<int, Technology>
      */
-    #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'projects')]
+    #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'projects', cascade: ["persist"])]
     private Collection $Technologies;
 
     public function __construct()
@@ -166,6 +173,18 @@ class Project
     public function removeTechnology(Technology $technology): static
     {
         $this->Technologies->removeElement($technology);
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile): static
+    {
+        $this->imageFile = $imageFile;
 
         return $this;
     }

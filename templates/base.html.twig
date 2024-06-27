@@ -16,7 +16,7 @@
 </head>
 <body class="h-full bg-background text-foreground flex flex-col">
 
-<twig:Navbar/>
+<twig:Navbar :links="{Présentation: '#', Compétences: '#', Projets: '#', Contact: '#'}"/>
 
 <div class="flex-1">
     {% block body %}{% endblock %}
