@@ -1,0 +1,49 @@
+{% extends 'admin/adminBase.html.twig' %}
+
+{% block title %}Projets{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="relative overflow-x-auto container mx-auto my-8 max-w-3xl p-4">
+        <h1 class="text-2xl font-bold mb-8">Projets</h1>
+
+        <table class="w-full text-left text-sm">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 rounded-t-lg">
+            <tr>
+                <th scope="col" class="px-6 py-3 w-full">
+                    Nom du projet
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <a href="{{ path('admin_project_new') }}" class="btn btn-primary">Ajouter</a>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for project in projects %}
+                <tr class="bg-background border-b border-border hover:bg-gray-50/60">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 text-base whitespace-nowrap">
+                        {{ project.title }}
+                        {% if project.pinned == true %}
+                            <twig:ux:icon name="mdi:favorite-check"
+                                          class="inline align-baseline size-4 text-yellow-400"/>
+                        {% endif %}
+                    </th>
+                    <td class="px-6 py-4 space-y-2">
+                        <a href="{{ path('admin_project_edit', {id: project.id}) }}">Éditer</a>
+                        <form action="{{ path('admin_project_delete', {id: project.id,}) }}" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="text-red-800 font-medium">Supprimer</button>
+                        </form>
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

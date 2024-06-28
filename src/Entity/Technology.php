@@ -6,8 +6,11 @@ use App\Repository\TechnologyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: TechnologyRepository::class)]
+#[UniqueEntity(['name'])]
 class Technology
 {
     #[ORM\Id]
@@ -16,6 +19,8 @@ class Technology
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 2, max: 50)]
     private ?string $name = null;
 
     /**
@@ -23,6 +28,11 @@ class Technology
      */
     #[ORM\ManyToMany(targetEntity: Project::class, mappedBy: 'Technologies')]
     private Collection $projects;
+
+    #[ORM\Column(length: 255)]
+    #[Assert\NotBlank()]
+    #[Assert\Length(min: 5, max: 100)]
+    private ?string $symfonyUxIconName = null;
 
     public function __construct()
     {
@@ -69,6 +79,18 @@ class Technology
         if ($this->projects->removeElement($project)) {
             $project->removeTechnology($this);
         }
+
+        return $this;
+    }
+
+    public function getSymfonyUxIconName(): ?string
+    {
+        return $this->symfonyUxIconName;
+    }
+
+    public function setSymfonyUxIconName(string $symfonyUxIconName): static
+    {
+        $this->symfonyUxIconName = $symfonyUxIconName;
 
         return $this;
     }

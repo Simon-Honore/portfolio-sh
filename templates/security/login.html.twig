@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+    <form method="post" class="container m-auto my-8 max-w-xl">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">se
+                    déconnecter</a>
+            </div>
+        {% endif %}
+
+        <h1 class="text-2xl font-semibold mb-4">Connection administrateur</h1>
+        <div class="mb-4">
+            <label for="inputUsername" class="block text-sm font-medium text-foreground/80">Nom d'utilisateur</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+                   class="bg-gray-50 border border-border text-gray-900 rounded-lg focus:ring-ring focus:ring-offset-1 block w-full p-2.5"
+                   autocomplete="username" required autofocus>
+        </div>
+        <div class="mb-4">
+            <label for="inputPassword" class="block text-sm font-medium text-foreground/80">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword"
+                   class="bg-gray-50 border border-border text-gray-900 rounded-lg focus:ring-ring focus:ring-offset-1 block w-full p-2.5"
+                   autocomplete="current-password"
+                   required>
+
+            <input type="hidden" name="_csrf_token"
+                   value="{{ csrf_token('authenticate') }}"
+            >
+        </div>
+
+        <div class="flex items-center mb-4">
+            <label class=" text-sm font-medium text-foreground/80 flex items-center gap-2">
+                <input type="checkbox" name="_remember_me"
+                       class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-ring focus:ring-offset-1">
+                Se souvenir de moi
+            </label>
+        </div>
+
+        <button class="btn btn-primary" type="submit">
+            Se connecter
+        </button>
+    </form>
+{% endblock %}
