@@ -16,6 +16,17 @@ class ProjectRepository extends ServiceEntityRepository
         parent::__construct($registry, Project::class);
     }
 
+    public function findProjectsPinned(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.isPinned = true')
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult();
+    }
+
+
     //    /**
     //     * @return Project[] Returns an array of Project objects
     //     */

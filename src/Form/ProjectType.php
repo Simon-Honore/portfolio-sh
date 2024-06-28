@@ -35,7 +35,9 @@ class ProjectType extends AbstractType
             ->add('plot', TextType::class, [
                 'empty_data' => '',
             ])
-            ->add('imageFile', VichFileType::class)
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+            ])
             ->add('technologies', EntityType::class, [
                 'class' => Technology::class,
                 'choice_label' => 'name',
