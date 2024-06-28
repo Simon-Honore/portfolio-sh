@@ -1,4 +1,4 @@
-<a href="#"
+<a href="{{ path('project_show', {id: project.id, slug: project.slug}) }}"
    class="flex flex-col bg-card text-card-foreground border border-border hover:shadow-sm max-w-[300px] mx-auto rounded-lg md:grayscale md:hover:grayscale-0">
     <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="image du projet {{ project.title }}"
          class="rounded-t-lg "/>
