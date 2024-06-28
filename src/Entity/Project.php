@@ -59,6 +59,9 @@ class Project
     #[ORM\ManyToMany(targetEntity: Technology::class, inversedBy: 'projects', cascade: ["persist"])]
     private Collection $Technologies;
 
+    #[ORM\Column]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     public function __construct()
     {
         $this->Technologies = new ArrayCollection();
@@ -185,6 +188,18 @@ class Project
     public function setImageFile(?File $imageFile): static
     {
         $this->imageFile = $imageFile;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

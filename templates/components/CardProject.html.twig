@@ -1,0 +1,15 @@
+<a href="#"
+   class="flex flex-col bg-card text-card-foreground border border-border hover:shadow-sm max-w-[300px] mx-auto rounded-lg md:grayscale md:hover:grayscale-0">
+    <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="image du projet {{ project.title }}"
+         class="rounded-t-lg "/>
+
+    <div class="px-4 py-8 space-y-2">
+        <h5 class="font-bold text-xl uppercase">{{ project.title }}</h5>
+        <p>{{ project.plot }}</p>
+        <div class="flex gap-2 flex-wrap">
+            {% for techno in project.technologies %}
+                <twig:ux:icon name="{{ techno.symfonyUxIconName }}" class="size-8"/>
+            {% endfor %}
+        </div>
+    </div>
+</a>
