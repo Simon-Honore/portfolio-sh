@@ -9,8 +9,8 @@
         </div>
 
         <div class="flex flex-col gap-6 px-4 md:flex-1">
-            <h1 class="font-bold text-6xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent pb-2">{{ project.title }}</h1>
-            <p class="text-xl text-foreground/50 font-medium text-justify">{{ project.plot }}</p>
+            <h1 class="font-extrabold text-6xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent pb-2">{{ project.title }}</h1>
+            <p class="text-xl text-muted font-medium text-justify">{{ project.plot }}</p>
             <div class="w-full flex flex-wrap gap-2">
                 {% if project.webSite %}
                     <a href="{{ project.webSite }}" class="btn btn-primary flex items-center gap-1 w-fit">
@@ -39,7 +39,7 @@
         </div>
     </div>
 
-    <div class="px-4 mt-12 pb-12 pt-8 bg-card">
+    <div class="px-4 mt-12 py-12 bg-card">
         <div class="md:container md:mx-auto md:max-w-5xl prose lg:prose-lg">
             {% apply markdown_to_html %}
                 {% autoescape false %}
