@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -44,6 +45,15 @@ class ProjectType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,
+            ])
+            ->add('webSite', UrlType::class, [
+                'required' => false,
+            ])
+            ->add('github', UrlType::class, [
+                'required' => false,
+            ])
+            ->add('githubBack', UrlType::class, [
+                'required' => false,
             ])
             ->add('description')
             ->addEventListener(FormEvents::PRE_SUBMIT, $this->formListenerFactory->autoSlug('title'))

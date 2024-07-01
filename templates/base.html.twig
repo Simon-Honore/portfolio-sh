@@ -14,15 +14,15 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="h-full bg-background text-foreground flex flex-col">
+<body class="h-full bg-background text-foreground flex flex-col relative">
 
 <twig:Navbar :links="{Présentation: '#', Compétences: '#', Projets: '#', Contact: '#'}"/>
 
-<div class="flex-1">
+<div class="flex-1 mt-[65px] mt-[73px]">
     {% block body %}{% endblock %}
 </div>
 
-<footer class="bg-gray-800 text-gray-300 px-6 py-12 mt-12">
+<footer class="bg-gray-800 text-gray-300 px-6 py-12">
     <div class="max-w-screen-xl mx-auto flex md:justify-between flex-col gap-4 md:flex-row-reverse justify-center md:items-center">
         <div class="flex gap-4">
             <a href="https://github.com/Simon-Honore" class="hover:text-white">

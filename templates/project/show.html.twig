@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.title }}{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col gap-2 md:gap-6 md:flex-row-reverse md:container md:mx-auto md:mt-12">
+        <div class="w-full md:flex-1 md:bg-accent md:p-4 md:rounded-lg">
+            <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="{{ project.title }}">
+        </div>
+
+        <div class="flex flex-col gap-6 px-4 md:flex-1">
+            <h1 class="font-bold text-6xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent pb-2">{{ project.title }}</h1>
+            <p class="text-xl text-foreground/50 font-medium text-justify">{{ project.plot }}</p>
+            <div class="w-full flex flex-wrap gap-2">
+                {% if project.webSite %}
+                    <a href="{{ project.webSite }}" class="btn btn-primary flex items-center gap-1 w-fit">
+                        <twig:ux:icon name="arcticons:emoji-web" class="size-6"/>
+                        Site
+                    </a>
+                {% endif %}
+                {% if project.github %}
+                    <a href="{{ project.github }}" class="btn btn-outline flex items-center gap-1">
+                        <twig:ux:icon name="devicon:github" class="size-6"/>
+                        Github
+                    </a>
+                {% endif %}
+                {% if project.githubBack %}
+                    <a href="{{ project.githubBack }}" class="btn btn-outline flex items-center gap-1">
+                        <twig:ux:icon name="devicon:github" class="size-6"/>
+                        Back-end
+                    </a>
+                {% endif %}
+            </div>
+            <div class="flex justify-center gap-2 md:h-full md:items-center">
+                {% for techno in project.technologies %}
+                    <twig:ux:icon name="{{ techno.symfonyUxIconName }}" class="size-8"/>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4 mt-12 pb-12 pt-8 bg-card">
+        <div class="md:container md:mx-auto md:max-w-5xl">
+            {{ project.description }}
+        </div>
+    </div>
+{% endblock %}
+
+
+
