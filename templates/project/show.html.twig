@@ -41,7 +41,11 @@
 
     <div class="px-4 mt-12 pb-12 pt-8 bg-card">
         <div class="md:container md:mx-auto md:max-w-5xl prose lg:prose-lg">
-            {{ project.description ?? ''| markdown_to_html }}
+            {% apply markdown_to_html %}
+                {% autoescape false %}
+                    {{ project.description ?? '' | raw }}
+                {% endautoescape %}
+            {% endapply %}
         </div>
     </div>
 {% endblock %}
