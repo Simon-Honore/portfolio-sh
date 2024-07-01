@@ -30,5 +30,25 @@
             </div>
             <a href="{{ path('project_index') }}" class="text-primary text-end block">Voir tous les projets -></a>
         </twig:SectionLayout>
+
+        <div class="bg-accent/30 px-4 py-12">
+            <div class="container mx-auto max-w-3xl space-y-6">
+                <h2 class="font-bold text-3xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent">
+                    Contactez-moi
+                </h2>
+
+                <p class="text-gray-600 text-lg font-medium">
+                    Vous souhaitez recruter un développeur passionné en alternance ou en contrat, ou tout simplement
+                    échanger, contactez-moi et je reviendrais vers vous très rapidement.
+                </p>
+
+                {{ form_start(form) }}
+                {{ form_row(form.name, {label: 'Votre nom'}) }}
+                {{ form_row(form.email, {label: 'Votre mail'}) }}
+                {{ form_row(form.message, {label: 'Votre message'}) }}
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
