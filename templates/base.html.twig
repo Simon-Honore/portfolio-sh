@@ -14,11 +14,11 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
     {% endblock %}
 </head>
-<body class="h-full bg-background text-foreground flex flex-col">
+<body class="h-full bg-background text-foreground flex flex-col relative">
 
 <twig:Navbar :links="{Présentation: '#', Compétences: '#', Projets: '#', Contact: '#'}"/>
 
-<div class="flex-1">
+<div class="flex-1 mt-[65px] mt-[73px]">
     {% block body %}{% endblock %}
 </div>
 

@@ -62,6 +62,18 @@ class Project
     #[ORM\Column]
     private ?\DateTimeImmutable $updatedAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Url()]
+    private ?string $webSite = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Url()]
+    private ?string $github = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    #[Assert\Url()]
+    private ?string $githubBack = null;
+
     public function __construct()
     {
         $this->Technologies = new ArrayCollection();
@@ -200,6 +212,42 @@ class Project
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getWebSite(): ?string
+    {
+        return $this->webSite;
+    }
+
+    public function setWebSite(?string $webSite): static
+    {
+        $this->webSite = $webSite;
+
+        return $this;
+    }
+
+    public function getGithub(): ?string
+    {
+        return $this->github;
+    }
+
+    public function setGithub(?string $github): static
+    {
+        $this->github = $github;
+
+        return $this;
+    }
+
+    public function getGithubBack(): ?string
+    {
+        return $this->githubBack;
+    }
+
+    public function setGithubBack(?string $githubBack): static
+    {
+        $this->githubBack = $githubBack;
 
         return $this;
     }
