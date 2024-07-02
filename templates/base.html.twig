@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="h-full" lang="fr">
+<html class="h-full scroll-smooth" lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
 </head>
 <body class="h-full bg-background text-foreground flex flex-col relative">
 
-<twig:Navbar :links="{Présentation: '#', Compétences: '#', Projets: '#', Contact: '#'}"/>
+<twig:Navbar :links="{Présentation: '/#hero', Compétences: '/#skills', Projets: '/#projects', Contact: '/#contact'}"/>
 
 <div class="flex-1 mt-[65px] mt-[73px]">
     <div class="container mx-auto my-4">
@@ -25,19 +25,7 @@
     {% block body %}{% endblock %}
 </div>
 
-<footer class="bg-gray-800 text-gray-300 px-6 py-12">
-    <div class="max-w-screen-xl mx-auto flex md:justify-between flex-col gap-4 md:flex-row-reverse justify-center md:items-center">
-        <div class="flex gap-4">
-            <a href="https://github.com/Simon-Honore" class="hover:text-white">
-                <twig:ux:icon name="flowbite:github-solid" class="size-8"/>
-            </a>
-            <a href="https://www.linkedin.com/in/simon-honore/" class="hover:text-white">
-                <twig:ux:icon name="flowbite:linkedin-solid" class="size-8"/>
-            </a>
-        </div>
-        <p>© {{ "now" | date("Y") }} - Simon Honoré. Tous droits réservés</p>
-    </div>
-</footer>
+<twig:Footer/>
 
 {# TODO - à enlever en prod #}
 {# indicateur screen size #}

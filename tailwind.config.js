@@ -16,6 +16,8 @@ module.exports = {
             border: 'hsl(var(--border) / <alpha-value>)',
             accent: 'hsl(var(--accent) / <alpha-value>)',
             ring: 'hsl(var(--ring) / <alpha-value>)',
+            muted: 'hsl(var(--muted) / <alpha-value>)',
+            secondary: 'hsl(var(--secondary) / <alpha-value>)',
         },
         extend: {},
     },

@@ -10,10 +10,18 @@
         <img src="{{ vich_uploader_asset(project, 'imageFile') }}" alt="" class="w-full">
 
         {{ form_start(form) }}
+        {{ form_row(form.title, {label: 'Titre'}) }}
+        {{ form_row(form.slug, {label: 'Slug'}) }}
+        {{ form_row(form.Pinned, {label: 'Sur la page d\'accueil'}) }}
+        {{ form_row(form.plot, {label: 'Courte description'}) }}
+        {{ form_row(form.imageFile, {label: 'Image'}) }}
+        {{ form_row(form.technologies, {label: 'Technologies utilisées'}) }}
+        {{ form_row(form.webSite, {label: 'Lien du site'}) }}
+        {{ form_row(form.github, {label: 'Lien du repo Github'}) }}
+        {{ form_row(form.githubBack, {label: 'Lien du repo Github back-end si il y a'}) }}
+        {{ form_row(form.description, {label: 'Description (en Markdown)'}) }}
         {{ form_rest(form) }}
-
         <button type="submit" class="btn btn-primary">Enregister</button>
-
         {{ form_end(form) }}
     </div>
 

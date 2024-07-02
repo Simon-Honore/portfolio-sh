@@ -5,9 +5,6 @@ namespace App\Twig\Components;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 #[AsTwigComponent]
-final class SectionLayout
+final class Footer
 {
-    public string $sectionTitle;
-
-    public ?string $sectionId;
 }

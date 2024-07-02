@@ -7,7 +7,7 @@
 
         <twig:Hero/>
 
-        <twig:SectionLayout sectionTitle="Compétences">
+        <twig:SectionLayout sectionTitle="Compétences" sectionId="skills">
             <div class="flex flex-col gap-4 md:flex-row md:justify-around">
 
                 <twig:CardSkills cardTitle="Front-end"
@@ -22,22 +22,23 @@
             </div>
         </twig:SectionLayout>
 
-        <twig:SectionLayout sectionTitle="Projets">
+        <twig:SectionLayout sectionTitle="Projets" sectionId="projects">
             <div class="flex flex-col gap-6 md:flex-row md:justify-around">
                 {% for project in projects %}
                     <twig:CardProject :project="project"/>
                 {% endfor %}
             </div>
-            <a href="{{ path('project_index') }}" class="text-primary text-end block">Voir tous les projets -></a>
+            <a href="{{ path('project_index') }}" class="text-primary text-end block font-medium hover:underline">Voir
+                tous les projets -></a>
         </twig:SectionLayout>
 
-        <div class="bg-accent/30 px-4 py-12">
+        <div class="bg-primary/20 px-4 py-12" id="contact">
             <div class="container mx-auto max-w-3xl space-y-6">
-                <h2 class="font-bold text-3xl bg-gradient-to-r from-primary to-purple-800 bg-clip-text text-transparent">
+                <h2 class="font-extrabold text-4xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent text-center md:text-5xl">
                     Contactez-moi
                 </h2>
 
-                <p class="text-gray-600 text-lg font-medium">
+                <p class="text-muted text-lg font-medium">
                     Vous souhaitez recruter un développeur passionné en alternance ou en contrat, ou tout simplement
                     échanger, contactez-moi et je reviendrais vers vous très rapidement.
                 </p>
