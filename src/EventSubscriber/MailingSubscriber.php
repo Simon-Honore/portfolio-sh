@@ -19,7 +19,7 @@ class MailingSubscriber implements EventSubscriberInterface
         $contactDTO = $event->contactDTO;
         $mail = (new TemplatedEmail())
             ->from($contactDTO->email)
-            ->to('contact@example.com')
+            ->to('contact@simonhonore.fr')
             ->subject('Demande de contact')
             ->htmlTemplate('emails/contact.html.twig')
             ->context(['data' => $contactDTO]);
