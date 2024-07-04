@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio de Simon Honoré, développeur web">
     <title>Simon Honoré - {% block title %}Portfolio{% endblock %}</title>
+    <meta property="og:title" content="Bienvenue sur mon Portfolio">
+    <meta property="og:author" content="Simon Honoré">
+    <meta property="og:description"
+          content="Simon Honoré, développeur web. Voici mon Portfolio où vous pouvez retrouver mes projets et me contacter.">
+    <meta property="og:site_name" content="Portfolio - Simon Honoré">
+    <meta property="og:url" content="https://simonhonore.fr">
+    <meta property="og:image" content="{{ asset('images/portfolio.png') }}">
     <link rel="icon"
           href="{{ asset('/icons/favicon.ico') }}">
     {% block stylesheets %}
