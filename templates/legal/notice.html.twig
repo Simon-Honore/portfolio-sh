@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mentions légales{% endblock %}
+
+{% block body %}
+
+    <twig:SectionLayout sectionTitle="Mentions légales">
+        <h3 class="font-medium text-lg">Éditeur du Site</h3>
+        <ul>
+            <li><span class="font-medium">Nom:</span> Simon Honoré</li>
+            <li><span class="font-medium">Adresse:</span> Angers, France.</li>
+            <li><span class="font-medium">Email:</span> contact@simonhonore.fr</li>
+        </ul>
+        <h3 class="font-medium text-lg">Hébergement</h3>
+        <ul>
+            <li><span class="font-medium">Hébergeur:</span> o2switch</li>
+        </ul>
+        <h3 class="font-medium text-lg">Propriété Intellectuelle</h3>
+        <p>
+            Tout le contenu de ce site, y compris les textes, images, vidéos, et autres matériaux, est protégé par le
+            droit d'auteur et est la propriété de Simon Honoré, sauf indication contraire. Toute reproduction,
+            distribution, modification ou exploitation de ce contenu sans autorisation écrite est interdite.
+        </p>
+        <h3 class="font-medium text-lg">Responsabilité</h3>
+        <p>
+            Simon Honoré ne pourra être tenu responsable des dommages directs ou indirects résultant de l'utilisation du
+            site ou de l'impossibilité d'y accéder.
+        </p>
+        <h3 class="font-medium text-lg">Contact</h3>
+        <p class="pb-12">
+            Pour toute question concernant ces mentions légales, vous pouvez nous contacter via le formulaire de contact
+            disponible sur le site.
+        </p>
+    </twig:SectionLayout>
+{% endblock %}
